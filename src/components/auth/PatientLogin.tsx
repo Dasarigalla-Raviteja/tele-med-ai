@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Mail, Lock, Eye, EyeOff } from "lucide-react"
 import { AuthLayout } from "./AuthLayout"
 import { MedicalButton } from "@/components/ui/medical-button"
@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 
 export const PatientLogin = () => {
+  const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     email: "",
@@ -16,8 +17,10 @@ export const PatientLogin = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Implement patient login logic
-    console.log("Patient login:", formData)
+    // Simple redirect to patient dashboard for any input
+    if (formData.email && formData.password) {
+      navigate("/patient/dashboard")
+    }
   }
 
   return (

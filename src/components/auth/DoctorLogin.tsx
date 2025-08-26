@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { IdCard, Lock, Eye, EyeOff, Stethoscope } from "lucide-react"
 import { AuthLayout } from "./AuthLayout"
 import { MedicalButton } from "@/components/ui/medical-button"
@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 export const DoctorLogin = () => {
+  const navigate = useNavigate()
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     doctorId: "",
@@ -16,8 +17,10 @@ export const DoctorLogin = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Implement doctor login logic
-    console.log("Doctor login:", formData)
+    // Simple redirect to doctor dashboard for any input
+    if (formData.doctorId && formData.password) {
+      navigate("/doctor/dashboard")
+    }
   }
 
   return (
