@@ -8,6 +8,7 @@ import { PatientLogin } from "./components/auth/PatientLogin";
 import { PatientSignup } from "./components/auth/PatientSignup";
 import { DoctorLogin } from "./components/auth/DoctorLogin";
 import { PatientDashboard } from "./components/patient/PatientDashboard";
+import { SymptomAnalysis } from "./components/patient/SymptomAnalysis";
 import { DoctorDashboard } from "./components/doctor/DoctorDashboard";
 import NotFound from "./pages/NotFound";
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/patient/login" element={<PatientLogin />} />
           <Route path="/patient/signup" element={<PatientSignup />} />
           <Route path="/patient/dashboard" element={<PatientDashboard />} />
+          <Route path="/patient/symptoms" element={<SymptomAnalysis />} />
           
           {/* Doctor Routes */}
           <Route path="/doctor/login" element={<DoctorLogin />} />

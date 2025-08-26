@@ -19,7 +19,7 @@ import { Badge } from "@/components/ui/badge"
 
 const sidebarItems = [
   { title: "Dashboard", url: "/patient/dashboard", icon: Activity },
-  { title: "Symptom Analysis", url: "/patient/symptoms", icon: MessageCircle },
+  { title: "Symptom Analysis", url: "/patient/symptoms", icon: Stethoscope },
   { title: "Find Doctors", url: "/patient/doctors", icon: Stethoscope },
   { title: "Appointments", url: "/patient/appointments", icon: Calendar },
   { title: "Test Reports", url: "/patient/reports", icon: FileText },
