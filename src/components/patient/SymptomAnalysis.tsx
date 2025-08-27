@@ -98,28 +98,28 @@ export const SymptomAnalysis = () => {
       userRole="patient"
       userName="John Doe"
     >
-      <main className="flex-1 p-6 lg:p-8">
+      <main className="flex-1 p-4 md:p-6 lg:p-8">
         {/* Header Section */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="p-3 rounded-xl bg-primary/10">
-              <Stethoscope className="w-8 h-8 text-primary" />
+        <div className="mb-6 md:mb-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-4">
+            <div className="p-2 md:p-3 rounded-xl bg-primary/10 flex-shrink-0">
+              <Stethoscope className="w-6 h-6 md:w-8 md:h-8 text-primary" />
             </div>
-            <div>
-              <h1 className="text-3xl font-bold text-foreground">Symptom Analysis</h1>
-              <p className="text-muted-foreground">Enter your symptoms below for AI-powered health predictions</p>
+            <div className="min-w-0 flex-1">
+              <h1 className="text-2xl md:text-3xl font-bold text-foreground">Symptom Analysis</h1>
+              <p className="text-sm md:text-base text-muted-foreground">Enter your symptoms below for AI-powered health predictions</p>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-4 gap-4 md:gap-6">
           {/* Main Content */}
-          <div className="lg:col-span-3 space-y-6">
+          <div className="xl:col-span-3 space-y-4 md:space-y-6">
             {/* Input Section */}
             <Card className="border-0 shadow-sm bg-white">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Brain className="w-5 h-5 text-primary" />
+              <CardHeader className="pb-4">
+                <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+                  <Brain className="w-4 w-4 md:w-5 md:h-5 text-primary" />
                   Describe Your Symptoms
                 </CardTitle>
               </CardHeader>
@@ -129,36 +129,36 @@ export const SymptomAnalysis = () => {
                     placeholder="Describe your symptoms in detail (e.g., fever for 2 days, severe headache, fatigue, sore throat)..."
                     value={symptoms}
                     onChange={(e) => setSymptoms(e.target.value)}
-                    className="min-h-[120px] pr-16 text-base resize-none"
+                    className="min-h-[100px] md:min-h-[120px] pr-12 md:pr-16 text-sm md:text-base resize-none"
                   />
                   <MedicalButton
                     onClick={handleVoiceInput}
                     variant={isListening ? "medical" : "medicalOutline"}
                     size="icon"
-                    className={`absolute bottom-3 right-3 ${isListening ? 'animate-pulse' : ''}`}
+                    className={`absolute bottom-2 md:bottom-3 right-2 md:right-3 h-8 w-8 md:h-10 md:w-10 ${isListening ? 'animate-pulse' : ''}`}
                   >
-                    <Mic className="w-4 h-4" />
+                    <Mic className="w-3 h-3 md:w-4 md:h-4" />
                   </MedicalButton>
                 </div>
                 
-                <div className="flex items-center justify-between">
-                  <p className="text-sm text-muted-foreground">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                  <p className="text-xs md:text-sm text-muted-foreground">
                     Be as specific as possible for accurate analysis
                   </p>
                   <MedicalButton
                     onClick={handleAnalyze}
                     disabled={!symptoms.trim() || isAnalyzing}
                     variant="medical"
-                    className="px-8"
+                    className="px-6 md:px-8 w-full sm:w-auto text-sm md:text-base"
                   >
                     {isAnalyzing ? (
                       <>
-                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                        <div className="w-3 h-3 md:w-4 md:h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
                         Analyzing...
                       </>
                     ) : (
                       <>
-                        <Send className="w-4 h-4 mr-2" />
+                        <Send className="w-3 h-3 md:w-4 md:h-4 mr-2" />
                         Analyze Symptoms
                       </>
                     )}
@@ -169,33 +169,33 @@ export const SymptomAnalysis = () => {
 
             {/* Results Section */}
             {showResults && (
-              <div className="space-y-6 animate-fade-in">
+              <div className="space-y-4 md:space-y-6 animate-fade-in">
                 {/* AI Predictions */}
                 <Card className="border-0 shadow-sm bg-white">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Brain className="w-5 h-5 text-primary" />
+                  <CardHeader className="pb-4">
+                    <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+                      <Brain className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                       AI Health Predictions
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="grid gap-4">
+                    <div className="grid gap-3 md:gap-4">
                       {mockDiseases.map((disease, index) => (
                         <div
                           key={index}
-                          className="p-4 rounded-lg border bg-gradient-to-r from-blue-50 to-teal-50 hover:shadow-md transition-all duration-200"
+                          className="p-3 md:p-4 rounded-lg border bg-gradient-to-r from-blue-50 to-teal-50 hover:shadow-md transition-all duration-200"
                         >
-                          <div className="flex items-center justify-between mb-2">
-                            <h3 className="font-semibold text-foreground">{disease.name}</h3>
-                            <div className="flex items-center gap-2">
-                              <Badge variant={disease.confidence === 'High' ? 'default' : disease.confidence === 'Medium' ? 'secondary' : 'outline'}>
+                          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-2">
+                            <h3 className="font-semibold text-foreground text-sm md:text-base">{disease.name}</h3>
+                            <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
+                              <Badge variant={disease.confidence === 'High' ? 'default' : disease.confidence === 'Medium' ? 'secondary' : 'outline'} className="text-xs">
                                 {disease.confidence}
                               </Badge>
-                              <span className="text-2xl font-bold text-primary">{disease.probability}%</span>
+                              <span className="text-lg md:text-2xl font-bold text-primary">{disease.probability}%</span>
                             </div>
                           </div>
-                          <p className="text-sm text-muted-foreground">{disease.description}</p>
-                          <div className="mt-3 bg-primary/10 rounded-full h-2">
+                          <p className="text-xs md:text-sm text-muted-foreground mb-3">{disease.description}</p>
+                          <div className="bg-primary/10 rounded-full h-2">
                             <div
                               className="bg-primary h-2 rounded-full transition-all duration-1000"
                               style={{ width: `${disease.probability}%` }}
@@ -209,48 +209,48 @@ export const SymptomAnalysis = () => {
 
                 {/* Recommended Doctors */}
                 <Card className="border-0 shadow-sm bg-white">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Stethoscope className="w-5 h-5 text-primary" />
+                  <CardHeader className="pb-4">
+                    <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+                      <Stethoscope className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                       Recommended Specialists
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="grid gap-4">
+                    <div className="grid gap-3 md:gap-4">
                       {mockDoctors.map((doctor) => (
                         <div
                           key={doctor.id}
-                          className="p-4 rounded-lg border hover:shadow-md transition-all duration-200 bg-gradient-to-r from-white to-blue-50"
+                          className="p-3 md:p-4 rounded-lg border hover:shadow-md transition-all duration-200 bg-gradient-to-r from-white to-blue-50"
                         >
-                          <div className="flex items-center gap-4">
-                            <Avatar className="w-16 h-16">
+                          <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
+                            <Avatar className="w-12 h-12 md:w-16 md:h-16 flex-shrink-0">
                               <AvatarImage src={doctor.image} alt={doctor.name} />
                               <AvatarFallback>{doctor.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                             </Avatar>
                             
-                            <div className="flex-1">
-                              <h3 className="font-semibold text-lg">{doctor.name}</h3>
-                              <p className="text-primary font-medium">{doctor.specialization}</p>
-                              <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
+                            <div className="flex-1 min-w-0">
+                              <h3 className="font-semibold text-base md:text-lg truncate">{doctor.name}</h3>
+                              <p className="text-primary font-medium text-sm md:text-base">{doctor.specialization}</p>
+                              <div className="flex flex-wrap items-center gap-2 md:gap-4 mt-2 text-xs md:text-sm text-muted-foreground">
                                 <span className="flex items-center gap-1">
-                                  <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                                  <Star className="w-3 h-3 md:w-4 md:h-4 fill-yellow-400 text-yellow-400" />
                                   {doctor.rating}
                                 </span>
                                 <span className="flex items-center gap-1">
-                                  <Clock className="w-4 h-4" />
+                                  <Clock className="w-3 h-3 md:w-4 md:h-4" />
                                   {doctor.experience}
                                 </span>
                                 <span className="flex items-center gap-1">
-                                  <MapPin className="w-4 h-4" />
-                                  {doctor.location}
+                                  <MapPin className="w-3 h-3 md:w-4 md:h-4" />
+                                  <span className="truncate">{doctor.location}</span>
                                 </span>
                               </div>
-                              <Badge variant="outline" className="mt-2">
+                              <Badge variant="outline" className="mt-2 text-xs">
                                 {doctor.availability}
                               </Badge>
                             </div>
                             
-                            <MedicalButton variant="medical">
+                            <MedicalButton variant="medical" size="sm" className="w-full sm:w-auto text-xs md:text-sm">
                               Book Appointment
                             </MedicalButton>
                           </div>
@@ -262,22 +262,22 @@ export const SymptomAnalysis = () => {
 
                 {/* Health Advice */}
                 <Card className="border-0 shadow-sm bg-gradient-to-r from-green-50 to-blue-50">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Heart className="w-5 h-5 text-green-600" />
+                  <CardHeader className="pb-4">
+                    <CardTitle className="flex items-center gap-2 text-base md:text-lg">
+                      <Heart className="w-4 h-4 md:w-5 md:h-5 text-green-600" />
                       Quick Health Advice
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
                       <div className="p-3 bg-white rounded-lg border-l-4 border-l-green-500">
-                        <p className="text-sm">Stay hydrated and get adequate rest</p>
+                        <p className="text-xs md:text-sm">Stay hydrated and get adequate rest</p>
                       </div>
                       <div className="p-3 bg-white rounded-lg border-l-4 border-l-blue-500">
-                        <p className="text-sm">Monitor your temperature regularly</p>
+                        <p className="text-xs md:text-sm">Monitor your temperature regularly</p>
                       </div>
                       <div className="p-3 bg-white rounded-lg border-l-4 border-l-orange-500">
-                        <p className="text-sm">Consult a doctor if symptoms worsen</p>
+                        <p className="text-xs md:text-sm">Consult a doctor if symptoms worsen</p>
                       </div>
                     </div>
                   </CardContent>
@@ -286,12 +286,12 @@ export const SymptomAnalysis = () => {
             )}
           </div>
 
-          {/* Right Sidebar */}
-          <div className="space-y-6">
+          {/* Right Sidebar - Hidden on mobile */}
+          <div className="xl:block space-y-4 md:space-y-6">
             {/* Recent Analyses */}
             <Card className="border-0 shadow-sm bg-white">
-              <CardHeader>
-                <CardTitle className="text-lg">Recent Analyses</CardTitle>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-base md:text-lg">Recent Analyses</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
@@ -300,13 +300,13 @@ export const SymptomAnalysis = () => {
                       key={index}
                       className="p-3 rounded-lg border hover:bg-gray-50 transition-colors cursor-pointer"
                     >
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <p className="font-medium text-sm">{analysis.condition}</p>
-                          <p className="text-xs text-muted-foreground">{analysis.result}</p>
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="min-w-0 flex-1">
+                          <p className="font-medium text-xs md:text-sm truncate">{analysis.condition}</p>
+                          <p className="text-xs text-muted-foreground truncate">{analysis.result}</p>
                           <p className="text-xs text-muted-foreground">{analysis.date}</p>
                         </div>
-                        <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                        <ChevronRight className="w-3 h-3 md:w-4 md:h-4 text-muted-foreground flex-shrink-0" />
                       </div>
                     </div>
                   ))}
@@ -316,16 +316,16 @@ export const SymptomAnalysis = () => {
 
             {/* Quick Actions */}
             <Card className="border-0 shadow-sm bg-white">
-              <CardHeader>
-                <CardTitle className="text-lg">Quick Actions</CardTitle>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-base md:text-lg">Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <MedicalButton variant="medicalOutline" className="w-full justify-start">
-                  <Calendar className="w-4 h-4 mr-2" />
+                <MedicalButton variant="medicalOutline" className="w-full justify-start text-xs md:text-sm">
+                  <Calendar className="w-3 h-3 md:w-4 md:h-4 mr-2" />
                   Book Appointment
                 </MedicalButton>
-                <MedicalButton variant="medicalOutline" className="w-full justify-start">
-                  <Heart className="w-4 h-4 mr-2" />
+                <MedicalButton variant="medicalOutline" className="w-full justify-start text-xs md:text-sm">
+                  <Heart className="w-3 h-3 md:w-4 md:h-4 mr-2" />
                   Upload Reports
                 </MedicalButton>
               </CardContent>
@@ -333,8 +333,29 @@ export const SymptomAnalysis = () => {
           </div>
         </div>
 
-        {/* Background Medical Icons */}
-        <div className="fixed inset-0 pointer-events-none overflow-hidden opacity-5">
+        {/* Mobile Quick Actions - Only visible on mobile */}
+        <div className="xl:hidden mt-6">
+          <Card className="border-0 shadow-sm bg-white">
+            <CardHeader className="pb-4">
+              <CardTitle className="text-base">Quick Actions</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <MedicalButton variant="medicalOutline" className="w-full justify-start text-xs">
+                  <Calendar className="w-3 h-3 mr-2" />
+                  Book Appointment
+                </MedicalButton>
+                <MedicalButton variant="medicalOutline" className="w-full justify-start text-xs">
+                  <Heart className="w-3 h-3 mr-2" />
+                  Upload Reports
+                </MedicalButton>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Background Medical Icons - Hidden on mobile */}
+        <div className="hidden lg:block fixed inset-0 pointer-events-none overflow-hidden opacity-5">
           <Heart className="absolute top-20 right-20 w-32 h-32 text-primary" />
           <Stethoscope className="absolute bottom-40 left-20 w-24 h-24 text-primary" />
           <Brain className="absolute top-1/2 right-1/4 w-20 h-20 text-primary" />
