@@ -9,6 +9,12 @@ import { PatientSignup } from "./components/auth/PatientSignup";
 import { DoctorLogin } from "./components/auth/DoctorLogin";
 import { PatientDashboard } from "./components/patient/PatientDashboard";
 import { SymptomAnalysis } from "./components/patient/SymptomAnalysis";
+import { RecommendedDoctors } from "./components/patient/RecommendedDoctors";
+import { Appointments } from "./components/patient/Appointments";
+import { TestReports } from "./components/patient/TestReports";
+import { Prescriptions } from "./components/patient/Prescriptions";
+import { CaseHistory } from "./components/patient/CaseHistory";
+import { ProfileSettings } from "./components/patient/ProfileSettings";
 import { DoctorDashboard } from "./components/doctor/DoctorDashboard";
 import NotFound from "./pages/NotFound";
 
@@ -28,6 +34,12 @@ const App = () => (
           <Route path="/patient/signup" element={<PatientSignup />} />
           <Route path="/patient/dashboard" element={<PatientDashboard />} />
           <Route path="/patient/symptoms" element={<SymptomAnalysis />} />
+          <Route path="/patient/doctors" element={<RecommendedDoctors />} />
+          <Route path="/patient/appointments" element={<Appointments />} />
+          <Route path="/patient/reports" element={<TestReports />} />
+          <Route path="/patient/prescriptions" element={<Prescriptions />} />
+          <Route path="/patient/history" element={<CaseHistory />} />
+          <Route path="/patient/profile" element={<ProfileSettings />} />
           
           {/* Doctor Routes */}
           <Route path="/doctor/login" element={<DoctorLogin />} />
