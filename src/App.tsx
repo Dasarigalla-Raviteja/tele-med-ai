@@ -16,6 +16,14 @@ import { Prescriptions } from "./components/patient/Prescriptions";
 import { CaseHistory } from "./components/patient/CaseHistory";
 import { ProfileSettings } from "./components/patient/ProfileSettings";
 import { DoctorDashboard } from "./components/doctor/DoctorDashboard";
+import { TodaysSchedule } from "./components/doctor/TodaysSchedule";
+import { PatientQueue } from "./components/doctor/PatientQueue";
+import { SymptomReports } from "./components/doctor/SymptomReports";
+import { UploadReports } from "./components/doctor/UploadReports";
+import { CaseManagement } from "./components/doctor/CaseManagement";
+import { PatientRecords } from "./components/doctor/PatientRecords";
+import { DoctorProfile } from "./components/doctor/DoctorProfile";
+import { DoctorSettings } from "./components/doctor/DoctorSettings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +52,14 @@ const App = () => (
           {/* Doctor Routes */}
           <Route path="/doctor/login" element={<DoctorLogin />} />
           <Route path="/doctor/dashboard" element={<DoctorDashboard />} />
+          <Route path="/doctor/appointments" element={<TodaysSchedule />} />
+          <Route path="/doctor/queue" element={<PatientQueue />} />
+          <Route path="/doctor/symptoms" element={<SymptomReports />} />
+          <Route path="/doctor/upload" element={<UploadReports />} />
+          <Route path="/doctor/cases" element={<CaseManagement />} />
+          <Route path="/doctor/records" element={<PatientRecords />} />
+          <Route path="/doctor/profile" element={<DoctorProfile />} />
+          <Route path="/doctor/settings" element={<DoctorSettings />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
