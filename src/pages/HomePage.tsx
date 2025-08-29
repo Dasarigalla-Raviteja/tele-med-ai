@@ -59,7 +59,7 @@ export const HomePage = () => {
                   <MedicalButton 
                     variant="medicalOutline" 
                     size="lg"
-                    className="border-2 border-white text-white bg-white/10 hover:bg-white hover:text-primary backdrop-blur-sm"
+                    className="border-2 border-white text-primary bg-white hover:bg-white/90"
                   >
                     Doctor Access
                   </MedicalButton>
