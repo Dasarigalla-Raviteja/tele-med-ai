@@ -57,9 +57,9 @@ export const HomePage = () => {
                 </Link>
                 <Link to="/doctor/login">
                   <MedicalButton 
-                    variant="outline" 
+                    variant="medicalOutline" 
                     size="lg"
-                    className="border-white text-white hover:bg-white hover:text-primary"
+                    className="border-2 border-white text-white bg-white/10 hover:bg-white hover:text-primary backdrop-blur-sm"
                   >
                     Doctor Access
                   </MedicalButton>
