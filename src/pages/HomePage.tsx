@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { Stethoscope, Users, Activity, Shield, ArrowRight, Heart, Brain, Clock } from "lucide-react"
 import { MedicalButton } from "@/components/ui/medical-button"
 import { Card, CardContent } from "@/components/ui/card"
-import medicalHero from "@/assets/medical-hero.jpg"
+// Using uploaded image directly
 
 export const HomePage = () => {
   return (
@@ -69,8 +69,8 @@ export const HomePage = () => {
             
             <div className="medical-slide-up">
               <img 
-                src={medicalHero} 
-                alt="Healthcare professionals and patients"
+                src="/lovable-uploads/27c82c1b-77a4-44ab-be0d-837b68a370c3.png" 
+                alt="AI-powered healthcare consultation with patient and doctor"
                 className="w-full h-auto rounded-2xl shadow-2xl"
               />
             </div>
